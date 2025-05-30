@@ -1,6 +1,6 @@
 import user from "../models/user.js";
 
-class userDao {
+class UserDao {
   constructor() {}
 
   create(userData) {
@@ -11,6 +11,10 @@ class userDao {
     return user.findOne({ id });
   }
 
+  findByEmail(email){
+
+    return user.findOne({email})
+  }
   findAll() {
     return user.find();
   }
@@ -23,3 +27,7 @@ class userDao {
     return user.findByIdAndDelete({ id });
   }
 }
+
+
+
+export default UserDao
