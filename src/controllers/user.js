@@ -1,7 +1,11 @@
 import { request, response } from "express";
-import UserDao from "../dao/user.js";
 
+import UserDao from "../dao/user.js";
+import { convertirPassword, validarPassword } from '../helpers/bcrypt.js'
+import { crearToken } from '../helpers/jwt.js'
 let userDao = new UserDao();
+
+
 
 export const crearUsuario = async (req = request, res = response) => {
     try {
@@ -34,8 +38,34 @@ export const obtenerUsuarios = async (req = request, res = response) => {
 
 
     } catch (error) {
-         return res
+        return res
             .status(500)
             .json({ ok: false, message: `Error Server ${error}` });
-    }   
+    }
+}
+
+export const iniciarSesion = async (req = request, res = response) => {
+
+    try {
+
+        let { email, password } = req.body
+
+        const userFind = await userDao.findByEmail(email)
+
+        if (!userFind) return res.status(401).json({ ok: false, message: "El usuario y contraseña son invalidos" })
+
+
+        if (!validarPassword(userFind.password, password)) return res.status(401).json({ ok: false, message: "El usuario y contraseña son invalidos" })
+        
+        let token = crearToken({id: userFind._id, email: userFind.email})
+
+        res.status(200).json({ ok: true, token})
+        
+
+    } catch (error) {
+        return res
+            .status(500)
+            .json({ ok: false, message: `Error Server ${error}` });
+
+    }
 }
