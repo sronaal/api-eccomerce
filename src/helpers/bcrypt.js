@@ -1,10 +1,11 @@
 import bcrypt from 'bcrypt'
 
 
-export const convertirPassword = (password) => {
+export const convertirPassword = async (password) => {
 
-    return bcrypt.hash(password)
-}
+    let hash = await bcrypt.hash(password,2)
+    return hash
+}   
 
 export const validarPassword = (hashPassword, password) => {
 

@@ -11,7 +11,9 @@ export const crearUsuario = async (req = request, res = response) => {
     try {
         let { firstname, lastname, email, password } = req.body;
 
-        let dataUser = { firstname, lastname, email, password };
+        const hashPassword = await convertirPassword(password)
+        let dataUser = { firstname, lastname, email };
+        dataUser.password = hashPassword
 
         const findUser = await userDao.findByEmail(email)
 
@@ -55,7 +57,7 @@ export const iniciarSesion = async (req = request, res = response) => {
         if (!userFind) return res.status(401).json({ ok: false, message: "El usuario y contraseña son invalidos" })
 
 
-        if (!validarPassword(userFind.password, password)) return res.status(401).json({ ok: false, message: "El usuario y contraseña son invalidos" })
+        if (! await validarPassword(userFind.password, password)) return res.status(401).json({ ok: false, message: "El usuario y contraseña son invalidos" })
         
         let token = crearToken({id: userFind._id, email: userFind.email})
 
