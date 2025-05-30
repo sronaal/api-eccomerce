@@ -59,7 +59,7 @@ export const iniciarSesion = async (req = request, res = response) => {
 
         if (! await validarPassword(userFind.password, password)) return res.status(401).json({ ok: false, message: "El usuario y contraseña son invalidos" })
         
-        let token = crearToken({id: userFind._id, email: userFind.email})
+        let token = crearToken({id: userFind._id, email: userFind.email, rol: userFind.rol})
 
         res.status(200).json({ ok: true, token})
         
