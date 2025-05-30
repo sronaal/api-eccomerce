@@ -9,10 +9,10 @@ let userDao = new UserDao();
 
 export const crearUsuario = async (req = request, res = response) => {
     try {
-        let { firstname, lastname, email, password } = req.body;
+        let { firstname, lastname, email, password, rol } = req.body;
 
         const hashPassword = await convertirPassword(password)
-        let dataUser = { firstname, lastname, email };
+        let dataUser = { firstname, lastname, email, rol };
         dataUser.password = hashPassword
 
         const findUser = await userDao.findByEmail(email)
