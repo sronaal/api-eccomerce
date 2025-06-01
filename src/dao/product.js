@@ -22,6 +22,10 @@ class DaoProducto{
         return Product.findOne({ estado })
     }
 
+    findById(id){
+
+        return Product.findById(id)
+    }
     
 
 
