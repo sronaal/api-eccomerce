@@ -14,7 +14,7 @@ class DaoProducto{
 
     findAll(){
 
-        return Product.find()
+        return Product.find().sort({createdAt: -1})
     }
 
     findByState(estado){
@@ -25,6 +25,11 @@ class DaoProducto{
     findById(id){
 
         return Product.findById(id)
+    }
+
+    delete(_id){
+        
+        return Product.deleteOne({_id})
     }
     
 

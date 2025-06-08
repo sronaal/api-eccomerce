@@ -16,7 +16,7 @@ class UserDao {
     return user.findOne({email})
   }
   findAll() {
-    return user.find();
+    return user.find().sort({createUp: -1});
   }
 
   update(id, userData) {

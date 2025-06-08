@@ -37,10 +37,26 @@ export const crearProducto = async (req = request, res = response) => {
     try {
         let { producto, precio, stock } = req.body
 
-        await daoProducto.create({ producto, precio, stock })
+        const createProduct = await daoProducto.create({ producto, precio, stock })
 
-        return res.status(201).json({ok: true, message: 'El producto se ha creado con exito'})
+        return res.status(201).json({ ok: true, createProduct })
     } catch (error) {
+        return res.status(500).json({ ok: false, message: `Error servidor ${error}` })
+
+    }
+}
+
+export const eliminarProducto = async (req = request, res = response) => {
+
+    try {
+
+        let { id } = req.params
+
+        await daoProducto.delete(id)
+
+        return res.status(200).json({ ok: true, messsage: `Producto eliminado con id ${id}` })
+    } catch (error) {
+        console.log(error)
         return res.status(500).json({ ok: false, message: `Error servidor ${error}` })
 
     }
