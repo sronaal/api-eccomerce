@@ -14,7 +14,7 @@ class DaoProducto{
 
     findAll(){
 
-        return Product.find().sort({createdAt: -1})
+        return Product.find().sort({createdAt: -1}).populate('categoria')
     }
 
     findByState(estado){

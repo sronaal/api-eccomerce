@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "6845d80894aa388af3896a05"
+  },
+  "nombre": "Celulares",
+  "descripcion": "Celulares de alta gama y última generación",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845d80894aa388af3896a06"
+  },
+  "nombre": "Laptops",
+  "descripcion": "Portátiles para trabajo, estudio y gaming",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845d80894aa388af3896a07"
+  },
+  "nombre": "Auriculares",
+  "descripcion": "Audífonos inalámbricos y con cable",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845d80894aa388af3896a08"
+  },
+  "nombre": "Televisores",
+  "descripcion": "Smart TVs de diferentes tamaños y resoluciones",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845d80894aa388af3896a09"
+  },
+  "nombre": "Tablets",
+  "descripcion": "Tablets para entretenimiento y productividad",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845d80894aa388af3896a0a"
+  },
+  "nombre": "Accesorios",
+  "descripcion": "Fundas, cargadores, cables, soportes y más",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845d80894aa388af3896a0b"
+  },
+  "nombre": "Componentes de PC",
+  "descripcion": "Procesadores, tarjetas gráficas, memorias y más",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845d80894aa388af3896a0c"
+  },
+  "nombre": "Hogar Inteligente",
+  "descripcion": "Dispositivos IoT como focos, cámaras y enchufes",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845d80894aa388af3896a0d"
+  },
+  "nombre": "Consolas y videojuegos",
+  "descripcion": "PlayStation, Xbox, Nintendo y juegos digitales",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6845d80894aa388af3896a0e"
+  },
+  "nombre": "Relojes inteligentes",
+  "descripcion": "Smartwatches y bandas deportivas con funciones avanzadas",
+  "__v": 0
+}]
